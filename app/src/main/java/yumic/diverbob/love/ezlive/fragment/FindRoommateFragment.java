@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.android.volley.RequestQueue;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import yumic.diverbob.love.ezlive.MyApplication;
@@ -26,10 +28,11 @@ import yumic.diverbob.love.ezlive.R;
 
 public class FindRoommateFragment extends Fragment {
     // 存储上下文对象
-    public Context context;
-    public Activity activity;
-    public MyApplication myApplication;
-    public ListView mListView = null;
+    private Context context;
+    private Activity activity;
+    private MyApplication myApplication;
+    private RequestQueue mQueue;
+
     @Bind(R.id.recycler_view)
     RecyclerView recyclerView;
     @Bind(R.id.swipe)

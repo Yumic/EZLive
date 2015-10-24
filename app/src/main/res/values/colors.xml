@@ -6,4 +6,6 @@
 
     <color name ="colorTextLight">#FFFFFF</color>
     <color name ="colorTextDark">#303030</color>
+
+    <color name ="colorDivider">#606060</color>
 </resources>
