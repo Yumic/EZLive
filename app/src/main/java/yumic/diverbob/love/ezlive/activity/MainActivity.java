@@ -1,8 +1,10 @@
 package yumic.diverbob.love.ezlive.activity;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +16,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import yumic.diverbob.love.ezlive.R;
+import yumic.diverbob.love.ezlive.fragment.FindRoomFragment;
+import yumic.diverbob.love.ezlive.fragment.FindRoommateFragment;
+import yumic.diverbob.love.ezlive.fragment.MyFindingInfoFragment;
+import yumic.diverbob.love.ezlive.fragment.MyRentingInfoFragment;
+import yumic.diverbob.love.ezlive.fragment.SettingAccountFragment;
+import yumic.diverbob.love.ezlive.fragment.SettingProfileFragment;
 
 
 public class MainActivity extends AppCompatActivity
@@ -80,21 +88,26 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = null;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_find_house) {
-            // Handle the camera action
+        if (id == R.id.nav_find_room) {
+            fragment = new FindRoomFragment();
         } else if (id == R.id.nav_find_roommate) {
+            fragment = new FindRoommateFragment();
 
         } else if (id == R.id.nav_my_fiding_info) {
+            fragment = new MyFindingInfoFragment();
 
         } else if (id == R.id.nav_my_renting_info) {
+            fragment = new MyRentingInfoFragment();
 
         } else if (id == R.id.nav_setting_profile) {
-
+            fragment = new SettingProfileFragment();
         } else if (id == R.id.nav_setting_account) {
-
+            fragment = new SettingAccountFragment();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
