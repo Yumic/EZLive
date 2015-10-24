@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ import yumic.diverbob.love.ezlive.bean.Roommate;
 public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHolder> {
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
+
 
 
     private List<Roommate> data = new ArrayList<Roommate>();
@@ -55,7 +57,7 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
             holder.textViewAge.setText(data.get(position).getAge());
             holder.textViewWishsex.setText(data.get(position).getWish_sex());
             holder.textViewWishcontent.setText(data.get(position).getWish_content());
-
+            holder.linearLayoutAll.setOnClickListener(new View.OnClickListener);
 
         }
     }
@@ -87,6 +89,10 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
         TextView textViewWishsex;
         @Bind(R.id.textView_wishcontent)
         TextView textViewWishcontent;
+        @Bind(R.id.imageView_photo)
+        ImageView imageViewPhoto;
+        @Bind(R.id.linearLayout_all)
+        LinearLayout linearLayoutAll;
 
 
         ViewHolder(View view) {
