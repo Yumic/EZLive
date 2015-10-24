@@ -32,6 +32,8 @@ import yumic.diverbob.love.ezlive.util.DoubleClickJuage;
  */
 public class LoginActivity extends Activity {
     private Button buttonLogin;
+//    注册按钮
+    private  Button btn_regiser;
     private ImageView imageViewId;
     private ImageView imageViewHead;
     private EditText editId,editPassword;
@@ -80,6 +82,15 @@ public class LoginActivity extends Activity {
 
         });
 
+//        给注册按钮添加监听事件
+        btn_regiser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent();
+                intent.setClass(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void netinit() {
@@ -137,6 +148,7 @@ public class LoginActivity extends Activity {
         buttonLogin=(Button)findViewById(R.id.button_login);
         editId=(EditText)findViewById(R.id.edit_id);
         editPassword=(EditText)findViewById(R.id.edit_password);
+        btn_regiser= (Button) findViewById(R.id.button_register);
 
     }
 

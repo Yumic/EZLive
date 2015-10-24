@@ -74,7 +74,7 @@ public class SettingAccountFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
+/*
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -84,7 +84,7 @@ public class SettingAccountFragment extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
-    }
+    }*/
 
     @Override
     public void onDetach() {
