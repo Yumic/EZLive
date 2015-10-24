@@ -152,12 +152,13 @@ public class FindRoommateFragment extends Fragment {
                                 temp.setAge_min(object.getString("age_min"));
                                 temp.setAge_max(object.getString("age_max"));
                                 temp.setPrice_max(object.getString("price_max"));
-                                temp.setPrice_max(object.getString("price_min"));
+                                temp.setPrice_min(object.getString("price_min"));
                                 temp.setSex(object.getString("sex"));
                                 temp.setQq(object.getString("qq"));
                                 temp.setWeixin(object.getString("weixin"));
                                 temp.setAge(object.getString("age"));
                                 temp.setId(object.getString("id"));
+
                                 roommateAdapter.setData(temp);
                             }
                         } catch (JSONException e) {
