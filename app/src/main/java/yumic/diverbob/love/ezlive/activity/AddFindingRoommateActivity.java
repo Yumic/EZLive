@@ -40,6 +40,7 @@ public class AddFindingRoommateActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = new FindingRoommateFragment1();
 
+
     }
 }
 
