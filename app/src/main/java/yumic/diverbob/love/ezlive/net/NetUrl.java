@@ -14,5 +14,8 @@ public class NetUrl {
     //找室友
     public static final String FIND_ROOMMATE =BASE_ADDRESS+"/find/friend";
 
+    //我的房源
+    public static final String My_Room=BASE_ADDRESS+"";
+
 
 }
