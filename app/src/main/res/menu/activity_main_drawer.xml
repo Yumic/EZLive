@@ -10,7 +10,7 @@
 
     <item android:title="已发布">
         <menu>
-            <item android:id="@+id/nav_my_fiding_info" android:icon="@android:drawable/ic_menu_slideshow"
+            <item android:id="@+id/nav_my_finding_info" android:icon="@android:drawable/ic_menu_slideshow"
                 android:title="我的合租信息" />
             <item android:id="@+id/nav_my_renting_info" android:icon="@android:drawable/ic_menu_manage"
                 android:title="我发布的房源" />

@@ -17,7 +17,7 @@ public class MyApplication extends Application {
     //用于保存当前用户
     private User currentUser;
 
-
+//需要调用时请用 myApplication = MyApplication.getInstance();
     public static MyApplication getInstance(){
         return myApplication;
     }

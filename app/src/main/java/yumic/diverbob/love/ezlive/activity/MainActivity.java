@@ -1,10 +1,12 @@
 package yumic.diverbob.love.ezlive.activity;
 
-import android.app.Fragment;
+
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +28,9 @@ import yumic.diverbob.love.ezlive.fragment.SettingProfileFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private final String TAG="MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,11 +100,15 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_find_room) {
             fragment = new FindRoomFragment();
+            Log.d(TAG," fragment = new FindRoomFragment()");
         } else if (id == R.id.nav_find_roommate) {
             fragment = new FindRoommateFragment();
+            Log.d(TAG,"fragment = new FindRoommateFragment()");
 
-        } else if (id == R.id.nav_my_fiding_info) {
+
+        } else if (id == R.id.nav_my_finding_info) {
             fragment = new MyFindingInfoFragment();
+            Log.d(TAG,"fragment = new MyFindingInfoFragment()");
 
         } else if (id == R.id.nav_my_renting_info) {
             fragment = new MyRentingInfoFragment();
@@ -112,6 +121,9 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        fragmentManager.beginTransaction()
+                .replace(R.id.container,fragment)
+                .commit();
         return true;
     }
 }
