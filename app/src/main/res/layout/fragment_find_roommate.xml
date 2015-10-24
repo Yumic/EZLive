@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/editRext_search"
             android:id="@+id/editText"
-            android:hint="输入地址查找也想居住在此的室友"
+            android:hint="输入地址"
             android:layout_toLeftOf="@+id/imageButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
