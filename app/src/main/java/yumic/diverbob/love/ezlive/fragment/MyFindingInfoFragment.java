@@ -21,9 +21,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import yumic.diverbob.love.ezlive.MyApplication;
 import yumic.diverbob.love.ezlive.R;
 import yumic.diverbob.love.ezlive.activity.FindingInfoDetailActivity;
+import yumic.diverbob.love.ezlive.bean.Roommate;
 import yumic.diverbob.love.ezlive.net.NetUrl;
 
 /**
@@ -92,13 +96,53 @@ public class MyFindingInfoFragment extends Fragment implements View.OnClickListe
 
         //获取信息
 
-        getMyRoomStringRequest = new StringRequest(Request.Method.POST, NetUrl.MY_ROOM,
+        getMyRoomStringRequest = new StringRequest(Request.Method.POST, NetUrl.My_Info,
                 new Response.Listener<String>() {
 
 
                     @Override
                     public void onResponse(String response) {
                         Log.d("TAG", response);
+                        JSONArray arr = null;
+
+                        try {
+                            arr = new JSONArray(response);
+                            JSONObject temp = (JSONObject)arr.getJSONObject(0);
+                            Log.e("TAG", "7");
+                            Log.e("TAG", "6");
+                            Roommate roommate=new Roommate();
+                            Log.e("TAG", "5");
+                            //得到数据
+                            roommate.setWish_sex(temp.getString("wish_sex"));
+                            roommate.setWish_content(temp.getString("wish_content"));
+                            roommate.setOwn_describe(temp.getString("own_describe"));
+                            Log.e("TAG", "4");
+                            roommate.setPosition(temp.getString("position"));
+                            roommate.setPosition_more(temp.getString("position_more"));
+                            roommate.setAge_min(temp.getString("age_min"));
+                            Log.e("TAG", "3");
+                            roommate.setAge_max(temp.getString("age_max"));
+                            roommate.setPrice_max(temp.getString("price_max"));
+                            Log.e("TAG", "2");
+                            roommate.setPrice_min(temp.getString("price_min"));
+                            Log.e("TAG", "1");
+                            String sex = null;
+                            if (temp.getString("wish_sex").equals("0")){
+                                sex="不限";
+                            }else if (temp.getString("wish_sex").equals("1")){
+                                sex="男";
+                            }else if (temp.getString("wish_sex").equals("2")){
+                                sex="女";
+                            }
+                            myApplication.setCurrentRoommate(roommate);
+                            //设置数据
+                            tv1.setText("");
+                            tv2.setText("期望舍友的性别："+sex);
+                            tv3.setText("对舍友期望："+temp.getString("wish_content"));
+                        } catch (Exception e) {
+
+                        }
+
 
 
                     }

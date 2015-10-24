@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView_showMessages"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="#ffffff"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/text_money"
+                    android:layout_marginLeft="10dp"
+                    android:text="整租：2800/月"
+                    android:gravity="center|left"
+                    android:textSize="20dp"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:id="@+id/shoucang"
+                    android:layout_gravity="center|right"
+                    android:background="@drawable/shoucang1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+
+
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:background="#ffffff"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_height="100dp">
+
+                <ImageView
+                    android:id="@+id/image_head"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/head"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp" />
+
+                <TextView
+                    android:id="@+id/name_sex_age"
+                    android:text=" 房东介绍：\n     不喜欢猫和狗在家里走来走去"
+                    android:textSize="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"/>
+
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_call"
+                android:layout_marginTop="10dp"
+                android:text="和 他 联 系"
+                android:textSize="25dp"
+                android:textColor="#ffffff"
+                android:background="#3ad4d2"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <TextView
+                android:id="@+id/tv1"
+                android:text=" 房源位置：：\n    西湖边\n"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#beac40"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+
+            <TextView
+                android:id="@+id/tv2"
+                android:text=" 房源概况：\n    三室一厅\n"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:background="#e17b65"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tv3"
+                android:text=" 房源附近：\n    有银泰\n"
+                android:background="#019e97"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tv4"
+                android:text=" 房源描述：\n    就是那么6\n"
+                android:background="#e17b65"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</LinearLayout>

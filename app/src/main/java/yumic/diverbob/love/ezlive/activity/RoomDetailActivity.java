@@ -19,7 +19,7 @@ import yumic.diverbob.love.ezlive.bean.Roommate;
 /**
  * Created by apple on 15/10/24.
  */
-public class FindingInfoDetailActivity extends Activity implements View.OnClickListener {
+public class RoomDetailActivity extends Activity implements View.OnClickListener {
 
     private TextView tvMoney,tvName,tv1,tv2,tv3,tv4;
     private Button collectButton,callButton;
@@ -32,7 +32,7 @@ public class FindingInfoDetailActivity extends Activity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.finding_detail_activity);
+        setContentView(R.layout.room_detail_activity);
         myApplication= (MyApplication) getApplication();
         roommate=myApplication.getCurrentRoommate();
         init();
