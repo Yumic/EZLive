@@ -43,7 +43,10 @@
             <Button
                 android:id="@+id/detail_message"
                 android:background="#f89b3b"
-                android:text="详细信息"
+                android:text="详 细 信 息"
+                android:textSize="18dp"
+                android:textColor="#ffffff"
+                android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -52,7 +55,10 @@
             <Button
                 android:id="@+id/change_message"
                 android:background="#f89b3b"
-                android:text="修改信息"
+                android:text="修 改 信 息"
+                android:textSize="18dp"
+                android:textColor="#ffffff"
+                android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

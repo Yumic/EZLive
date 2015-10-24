@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import yumic.diverbob.love.ezlive.MyApplication;
 import yumic.diverbob.love.ezlive.R;
 import yumic.diverbob.love.ezlive.activity.FindingInfoDetailActivity;
+import yumic.diverbob.love.ezlive.net.NetUrl;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +50,7 @@ public class MyFindingInfoFragment extends Fragment implements View.OnClickListe
     private MyApplication myApplication;
     private RequestQueue mQueue;
     private View view;
+    private StringRequest getMyRoomStringRequest;
 
     /**
      * Use this factory method to create a new instance of
@@ -71,9 +79,37 @@ public class MyFindingInfoFragment extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_my_finding_info, container, false);
         // Inflate the layout for this fragment
+        final RequestQueue mQueue = Volley.newRequestQueue(activity);
         init();
-
+        //网络处理初始化
+        netinit();
+        mQueue.add(getMyRoomStringRequest);
         return view;
+
+    }
+
+    private void netinit() {
+
+        //获取信息
+
+        getMyRoomStringRequest = new StringRequest(Request.Method.POST, NetUrl.MY_ROOM,
+                new Response.Listener<String>() {
+
+
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("TAG", response);
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("TAG", error.getMessage(), error);
+            }
+        }) {
+
+        };
 
     }
 

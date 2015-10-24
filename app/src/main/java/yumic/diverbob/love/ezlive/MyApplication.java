@@ -48,6 +48,11 @@ public class MyApplication extends Application {
     }
 
 
+    public Roommate getCurrentRoommate() {
+        return currentRoommate;
+    }
 
-
+    public void setCurrentRoommate(Roommate currentRoommate) {
+        this.currentRoommate = currentRoommate;
+    }
 }

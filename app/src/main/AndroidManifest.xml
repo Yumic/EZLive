@@ -3,6 +3,8 @@
     package="yumic.diverbob.love.ezlive" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
 
     <application
         android:name=".MyApplication"
@@ -13,14 +15,6 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".activity.WelcomeActivity">
-
-        </activity>
-
-        <activity
-            android:name=".activity.FindingInfoDetailActivity">
-
-        </activity>
-        <activity android:name=".activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +22,18 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.FindingInfoDetailActivity">
+
+        </activity>
+        <activity android:name=".activity.MainActivity" >
+
+        </activity>
+
         <activity android:name=".activity.LoginActivity" >
+        </activity>
+
+        <activity android:name=".activity.RoommateDetailActivity" >
         </activity>
     </application>
 

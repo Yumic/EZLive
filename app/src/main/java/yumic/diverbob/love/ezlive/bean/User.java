@@ -9,7 +9,7 @@ public class User {
     private String imagePath;
     private String nickName;
 
-    public User(String imagePath) {
+    public User() {
         setManagerId("未能获取");
         setManagerPhone("未能获取");
         setImagePath("未能获取");

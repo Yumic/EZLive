@@ -8,14 +8,12 @@ public class NetUrl {
 
     //登录
     public static final String LOGIN = BASE_ADDRESS + "/account/login";
-    //获取信息
-    public static final String GET_PERSONAL_MESSAGE=BASE_ADDRESS+"/android/room";
 
     //找室友
     public static final String FIND_ROOMMATE =BASE_ADDRESS+"/find/friend";
 
     //我的房源
-    public static final String My_Room=BASE_ADDRESS+"";
+    public static final String MY_ROOM=BASE_ADDRESS+"/find/my/room";
 
 
 }

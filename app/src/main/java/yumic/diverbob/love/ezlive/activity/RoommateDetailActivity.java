@@ -2,30 +2,61 @@ package yumic.diverbob.love.ezlive.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import yumic.diverbob.love.ezlive.MyApplication;
 import yumic.diverbob.love.ezlive.R;
+import yumic.diverbob.love.ezlive.bean.Roommate;
+
 
 
 /**
  * Created by apple on 15/10/24.
  */
-public class RoommateDetailActivity extends Activity {
+public class RoommateDetailActivity extends Activity implements View.OnClickListener {
 
     private TextView tvMoney,tvName,tv1,tv2,tv3,tv4;
     private Button collectButton,callButton;
     private ImageView headImage;
+    private Roommate roommate;
+
+    private MyApplication myApplication;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roommate_detail_activity);
+        myApplication= (MyApplication) getApplication();
+        roommate=myApplication.getCurrentRoommate();
         init();
+        fill_in();
 
+    }
 
+    private void fill_in() {
+        Log.d("test",roommate.getPrice_max()+roommate.getPrice_min());
+        int money=(Integer.parseInt(roommate.getPrice_min())+Integer.parseInt(roommate.getPrice_max()))/2;
+        tvMoney.setText("期望房租："+money+"/月");
+        String sex;
+        if (roommate.getSex().equals("1")){
+            sex="男";
+        }else{
+            sex="女";
+        }
+        tvName.setText(roommate.getName()+"\n"+sex+"  "+roommate.getAge()+"岁");
+        tv1.setText(" 个人介绍：：\n    "+roommate.getOwn_describe()+"\n");
+        tv2.setText(" 舍友期望：\n    "+roommate.getWish_content()+"\n");
+        tv3.setText(" 期望居住区域：\n    "+roommate.getPosition()+roommate.getPosition_more()+"\n");
+        tv4.setText(" 个人标签：\n    "+roommate.getTags()+"\n");
+        callButton.setOnClickListener(this);
     }
 
     private void init() {
@@ -41,4 +72,13 @@ public class RoommateDetailActivity extends Activity {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_call:
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + roommate.getUsername()));
+                startActivity(intent);
+                break;
+        }
+    }
 }

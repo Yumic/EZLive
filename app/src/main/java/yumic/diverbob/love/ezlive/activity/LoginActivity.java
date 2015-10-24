@@ -20,7 +20,9 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
+import yumic.diverbob.love.ezlive.MyApplication;
 import yumic.diverbob.love.ezlive.R;
+import yumic.diverbob.love.ezlive.bean.User;
 import yumic.diverbob.love.ezlive.net.NetUrl;
 import yumic.diverbob.love.ezlive.util.DoubleClickJuage;
 
@@ -34,10 +36,13 @@ public class LoginActivity extends Activity {
     private ImageView imageViewHead;
     private EditText editId,editPassword;
     private String id,password;
+    private MyApplication myApplication;
     private StringRequest loginStringRequest,getPersonMessageStringRequest;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //通过MyApplication获取当前用户
+        myApplication = MyApplication.getInstance();
         final RequestQueue mQueue = Volley.newRequestQueue(LoginActivity.this);
         //初始化
         init();
@@ -92,7 +97,9 @@ public class LoginActivity extends Activity {
                     public void onResponse(String response) {
                         Log.d("TAG", response);
                         if (response.equals("1")){
-
+                            User user=new User();
+                            user.setNickName(id);
+                            myApplication.setCurrentUser(user);
                             Intent loginIntent=new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(loginIntent);
                             finish();
@@ -119,26 +126,7 @@ public class LoginActivity extends Activity {
             }
         };
 
-        //获取信息
 
-        getPersonMessageStringRequest = new StringRequest(Request.Method.POST, NetUrl.GET_PERSONAL_MESSAGE,
-                new Response.Listener<String>() {
-
-
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("TAG", response);
-
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("TAG1", error.getMessage(), error);
-            }
-        }) {
-
-        };
 
     }
 

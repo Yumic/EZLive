@@ -1,6 +1,7 @@
 package yumic.diverbob.love.ezlive.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,11 +18,12 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import yumic.diverbob.love.ezlive.MyApplication;
 import yumic.diverbob.love.ezlive.R;
+import yumic.diverbob.love.ezlive.activity.RoommateDetailActivity;
 import yumic.diverbob.love.ezlive.bean.Roommate;
 
 public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHolder> {
     private final LayoutInflater mLayoutInflater;
-    private final Context mContext;
+    private  final Context mContext;
 
 
 
@@ -43,7 +45,7 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(mLayoutInflater.inflate(R.layout.item_roommate, parent, false));
+        return new ViewHolder(mLayoutInflater.inflate(R.layout.item_roommate, parent, false),mContext);
     }
 
     @Override
@@ -57,6 +59,14 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
             holder.textViewAge.setText(data.get(position).getAge());
             holder.textViewWishsex.setText(data.get(position).getWish_sex());
             holder.textViewWishcontent.setText(data.get(position).getWish_content());
+            holder.linearLayoutAll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(mContext,RoommateDetailActivity.class);
+                    myApplication.setCurrentRoommate(data.get(position));
+                    mContext.startActivity(intent);
+                }
+            });
 
 
         }
@@ -77,8 +87,7 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.imageView_photo)
-        ImageView imageViewPhoto;
+
         @Bind(R.id.textView_name)
         TextView textViewName;
         @Bind(R.id.textView_sex)
@@ -89,19 +98,20 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
         TextView textViewWishsex;
         @Bind(R.id.textView_wishcontent)
         TextView textViewWishcontent;
+        @Bind(R.id.imageView_photo)
+        ImageView imageViewPhoto;
         @Bind(R.id.linearLayout_all)
         LinearLayout linearLayoutAll;
 
-
-        ViewHolder(View view) {
+        ViewHolder(final View view,final Context mContext) {
             super(view);
             ButterKnife.bind(this, view);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-                    //TODO 在这里加监听
                     Log.d("NormalTextViewHolder", "onClick--> position = " + getLayoutPosition());
+                    Intent intent=new Intent(mContext, RoommateDetailActivity.class);
+                    mContext.startActivity(intent);
                 }
             });
         }
