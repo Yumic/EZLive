@@ -55,6 +55,12 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
             holder.textViewAge.setText(data.get(position).getAge());
             holder.textViewWishsex.setText(data.get(position).getWish_sex());
             holder.textViewWishcontent.setText(data.get(position).getWish_content());
+            holder.linearLayoutAll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //TODO 在这里加监听
+                }
+            });
 
         }
     }
@@ -86,6 +92,8 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
         TextView textViewWishsex;
         @Bind(R.id.textView_wishcontent)
         TextView textViewWishcontent;
+        @Bind(R.id.LinearLayout_all)
+        TextView linearLayoutAll;
 
 
         ViewHolder(View view) {
