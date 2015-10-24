@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="360dp" />
         <TextView
+            android:id="@+id/tv1"
             android:text="信息一"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -42,17 +43,21 @@
 
             <Button
                 android:id="@+id/detail_message"
+                android:background="#f89b3b"
                 android:text="详细信息"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"/>
 
             <Button
                 android:id="@+id/change_message"
+                android:background="#f89b3b"
                 android:text="修改信息"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"/>
         </LinearLayout>
 
     </LinearLayout>
