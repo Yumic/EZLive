@@ -3,6 +3,7 @@ package yumic.diverbob.love.ezlive;
 import android.app.Application;
 import android.util.Log;
 
+import yumic.diverbob.love.ezlive.bean.Roommate;
 import yumic.diverbob.love.ezlive.bean.User;
 
 /**
@@ -17,7 +18,9 @@ public class MyApplication extends Application {
     //用于保存当前用户
     private User currentUser;
 
-//需要调用时请用 myApplication = MyApplication.getInstance();
+    private Roommate currentRoommate;
+
+    //需要调用时请用 myApplication = MyApplication.getInstance();
     public static MyApplication getInstance(){
         return myApplication;
     }

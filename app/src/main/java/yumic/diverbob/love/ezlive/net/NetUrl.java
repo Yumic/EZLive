@@ -11,5 +11,8 @@ public class NetUrl {
     //获取信息
     public static final String GET_PERSONAL_MESSAGE=BASE_ADDRESS+"/android/room";
 
+    //找室友
+    public static final String FIND_ROOMMATE =BASE_ADDRESS+"/find/friend";
+
 
 }
