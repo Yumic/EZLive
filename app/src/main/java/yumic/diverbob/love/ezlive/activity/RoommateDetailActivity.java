@@ -14,7 +14,7 @@ import yumic.diverbob.love.ezlive.R;
 /**
  * Created by apple on 15/10/24.
  */
-public class FindingInfoDetailActivity extends Activity {
+public class RoommateDetailActivity extends Activity {
 
     private TextView tvMoney,tvName,tv1,tv2,tv3,tv4;
     private Button collectButton,callButton;
@@ -22,7 +22,7 @@ public class FindingInfoDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.finding_detail_activity);
+        setContentView(R.layout.roommate_detail_activity);
         init();
 
 

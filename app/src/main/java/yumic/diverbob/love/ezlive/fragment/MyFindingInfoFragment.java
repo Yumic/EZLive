@@ -95,11 +95,11 @@ public class MyFindingInfoFragment extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.change_message:
-                Intent intent=new Intent(context, FindingInfoDetailActivity.class);
-                startActivity(intent);
+
                 break;
             case R.id.detail_message:
-
+                Intent intent=new Intent(context, FindingInfoDetailActivity.class);
+                startActivity(intent);
                 break;
         }
     }
