@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    >
+
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -28,6 +32,7 @@
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/radioGroup_show"
                 >
 
                 <RadioButton
@@ -38,15 +43,17 @@
                     android:id="@+id/radioButton_show_all"
                     android:checked="false" />
 
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的收藏"
+                    android:textColor="@color/colorTextDark"
+                    android:id="@+id/radioButton_show_my"
+                    android:checked="false" />
+
             </RadioGroup>
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="我的收藏"
-                android:textColor="@color/colorTextDark"
-                android:id="@+id/radioButton_show_my"
-                android:checked="false" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -67,6 +74,7 @@
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/radioGroup_sex"
                 >
 
                 <RadioButton

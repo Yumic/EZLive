@@ -12,7 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -38,6 +39,7 @@ import yumic.diverbob.love.ezlive.adapter.RoommateAdapter;
 import yumic.diverbob.love.ezlive.bean.Roommate;
 import yumic.diverbob.love.ezlive.net.NetUrl;
 import yumic.diverbob.love.ezlive.util.CommonUtil;
+import yumic.diverbob.love.ezlive.view.RoommatePopup;
 
 
 /**
@@ -45,13 +47,18 @@ import yumic.diverbob.love.ezlive.util.CommonUtil;
  */
 
 public class FindRoommateFragment extends Fragment {
+    @Bind(R.id.editText)
+    EditText editText;
+    @Bind(R.id.imageView_down_arrow)
+    ImageView imageViewDownArrow;
     // 存储上下文对象
     private Context context;
     private Activity activity;
     private MyApplication myApplication;
     private RequestQueue mQueue;
 
-    RoommateAdapter roommateAdapter;
+    private RoommateAdapter roommateAdapter;
+    private RoommatePopup roommatePopup;
 
     private ArrayList<Roommate> dataList;
 
@@ -72,13 +79,13 @@ public class FindRoommateFragment extends Fragment {
         activity = getActivity();
         //通过MyApplication获取当前用户
         myApplication = MyApplication.getInstance();
-        roommateAdapter=new RoommateAdapter(context);
-        Log.d(TAG,"onCreate");
+        roommateAdapter = new RoommateAdapter(context);
+        roommatePopup = new RoommatePopup(activity);
+        Log.d(TAG, "onCreate");
         dataList = new ArrayList<Roommate>();
 
         fetchInfo();
     }
-
 
 
     //界面初始化
@@ -101,9 +108,19 @@ public class FindRoommateFragment extends Fragment {
                     }
                 });
         recyclerView.setAdapter(roommateAdapter);
-        //初始化ListView
-        //mListView=(ListView) view.findViewById(R.id.listview);
-        // mListView.setAdapter(adapter);
+
+        //取消焦点
+        // editText.clearFocus();
+
+        imageViewDownArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                roommatePopup.showPopupWindow(view);
+            }
+        });
+                //初始化ListView
+                //mListView=(ListView) view.findViewById(R.id.listview);
+                // mListView.setAdapter(adapter);
         return view;
     }
 
@@ -115,7 +132,7 @@ public class FindRoommateFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        Log.d(TAG,s);
+                        Log.d(TAG, s);
                         JSONArray array;
                         JSONObject object;
                         //对获得json array进行解析
@@ -147,7 +164,6 @@ public class FindRoommateFragment extends Fragment {
                         }
 
 
-
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -162,10 +178,10 @@ public class FindRoommateFragment extends Fragment {
                 map.put("sex", "0");
                 map.put("wish_sex", "0");
                 map.put("price_min", "0");
-                map.put("price_max","10000");
+                map.put("price_max", "10000");
                 map.put("age_min", "15");
-                map.put("age_max","40");
-                map.put("tag","");
+                map.put("age_max", "40");
+                map.put("tag", "");
                 return map;
             }
         };
@@ -173,8 +189,6 @@ public class FindRoommateFragment extends Fragment {
         mQueue.add(stringRequest);
 
     }
-
-
 
 
     @Override

@@ -10,7 +10,10 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/item_padding"
+        android:paddingLeft="@dimen/item_padding"
+        android:paddingRight="@dimen/item_padding"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         >
 
 
@@ -21,7 +24,8 @@
             android:hint="输入地址查找也想居住在此的室友"
             android:layout_toLeftOf="@+id/imageButton"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            />
 
         <ImageButton
             android:layout_width="42dp"
@@ -31,24 +35,14 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="筛选条件"
-            android:id="@+id/textView_filter"
-            android:layout_below="@+id/editText"
-            android:textColor="@color/colorPrimary"
-            android:layout_centerHorizontal="true"
-            android:visibility="visible"/>
+
     </RelativeLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:padding="@dimen/item_padding"
-        android:background="@color/colorDivider"></LinearLayout>
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_down_arrow"
+        android:id="@+id/imageView_down_arrow"/>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
