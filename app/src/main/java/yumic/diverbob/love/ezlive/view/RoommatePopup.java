@@ -125,6 +125,7 @@ public class RoommatePopup extends PopupWindow {
         editTextRoomateageMin.setText(Constants.DEFAULT_AGE_MIN);
         editTextRoomateageMax.setText(Constants.DEFAULT_AGE_MAX);
 
+
     }
 
     private void iniListner(final Activity activity) {

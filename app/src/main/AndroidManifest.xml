@@ -35,6 +35,8 @@
 
         <activity android:name=".activity.RoommateDetailActivity" >
         </activity>
+        <activity android:name=".activity.AddFindingRoommateActivity" >
+        </activity>
     </application>
 
 </manifest>

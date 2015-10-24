@@ -1,6 +1,9 @@
 package yumic.diverbob.love.ezlive.activity;
 
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity
 
 
     private final String TAG="MainActivity";
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +43,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -99,9 +98,23 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_find_room) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   //TODO 设置添加房源
+                }
+            });
             fragment = new FindRoomFragment();
+
             Log.d(TAG," fragment = new FindRoomFragment()");
         } else if (id == R.id.nav_find_roommate) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent =new Intent(MainActivity.this,AddFindingRoommateActivity.class);
+                    startActivity(intent);
+                }
+            });
             fragment = new FindRoommateFragment();
             Log.d(TAG,"fragment = new FindRoommateFragment()");
 

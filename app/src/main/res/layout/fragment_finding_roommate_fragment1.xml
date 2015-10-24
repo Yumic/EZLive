@@ -156,6 +156,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/item_padding"
+        android:id="@+id/linearLayout5" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="居住区域"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_position"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/item_padding"
         android:id="@+id/linearLayout4"
         android:layout_gravity="center_horizontal">
 
@@ -177,21 +198,4 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="完成"
-            android:textColor="@color/colorPrimary"
-            android:id="@+id/textView_finish"
-            android:layout_marginTop="24dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="28dp"
-            android:layout_marginEnd="28dp" />
-    </RelativeLayout>
 </LinearLayout>
