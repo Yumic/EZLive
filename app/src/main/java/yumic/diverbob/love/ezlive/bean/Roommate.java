@@ -87,6 +87,18 @@ public class Roommate {
      */
     private String age;
 
+    /**
+     * 表示ID
+     */
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getAge() {
         return age;

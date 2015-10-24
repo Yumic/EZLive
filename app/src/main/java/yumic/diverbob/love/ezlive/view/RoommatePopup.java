@@ -135,8 +135,8 @@ public class RoommatePopup extends PopupWindow {
                 if (i == radioButtonShowAll.getId()) {
                     SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_SCOPE, "1");
                 } else if (i == radioButtonShowMy.getId()) {
-                    //TODO
-                    SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_SCOPE, "1");
+                    //0代表查询收藏
+                    SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_SCOPE, "0");
                 }
 
             }
@@ -146,12 +146,12 @@ public class RoommatePopup extends PopupWindow {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == radioButtonSexMale.getId()) {
-                    //TODO
+                    //1代表男
                     SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_SEX, "1");
 
                 } else if (i == radioButtonSexFemale.getId()) {
-                    //TODO
-                    SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_SEX, "1");
+                    //2代表女
+                    SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_SEX, "2");
 
                 }
             }
@@ -161,16 +161,16 @@ public class RoommatePopup extends PopupWindow {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == radioButtonRoommatesexMale.getId()) {
-                    //TODO
+
                     SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_WISH_SEX, "1");
 
                 } else if (i == radioButtonRoommatesexFemale.getId()) {
-                    //TODO
-                    SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_WISH_SEX, "1");
+
+                    SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_WISH_SEX, "2");
 
                 } else if (i == radioButtonRoommatesexAll.getId()) {
-                    //TODO
-                    SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_WISH_SEX, "1");
+
+                    SharedPreferenceUtil.saveStringDate(activity, Constants.ROOMATE_WISH_SEX, "0");
 
                 }
             }

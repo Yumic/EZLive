@@ -157,6 +157,7 @@ public class FindRoommateFragment extends Fragment {
                                 temp.setQq(object.getString("qq"));
                                 temp.setWeixin(object.getString("weixin"));
                                 temp.setAge(object.getString("age"));
+                                temp.setId(object.getString("id"));
                                 roommateAdapter.setData(temp);
                             }
                         } catch (JSONException e) {

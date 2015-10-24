@@ -104,5 +104,9 @@ public class SharedPreferenceUtil {
 		}
 		return sharedPreferences.getFloat(key, defaultValue);
 	}
+
+
+
+
 	
 }
