@@ -101,18 +101,18 @@
                 android:layout_gravity="center"/>
 
 
-                <TextView
-                    android:id="@+id/tv2"
-                    android:text=" 舍友期望：\n    要说我帅\n"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:textSize="20dp"
-                    android:textColor="#ffffff"
-                    android:background="#e17b65"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/tv2"
+                android:text=" 舍友期望：\n    要说我帅\n"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:background="#e17b65"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/tv3"
