@@ -6,16 +6,6 @@ package yumic.diverbob.love.ezlive;
 public class constant {
 
 
-    //存储ROOMATE搜索项
-    public static final String ROOMATE_SCOPE="all";
-    public static final String ROOMATE_SEX = "sex";
-    public static final String ROOMATE_WISH_SEX = "wish_sex";
-    public static final String ROOMATE_PRICE_MIN="price_min";
-    public static final String ROOMATE_PRICE_MAX="price_max";
-    public static final String ROOMATE_AGE_MIN="age_min";
-    public static final String ROOMATE_AGE_MAX="age_max";
-    public static final String ROOMATE_TAG="tag";
-
 
 
 
