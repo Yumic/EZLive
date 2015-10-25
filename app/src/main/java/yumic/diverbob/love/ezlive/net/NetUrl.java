@@ -19,6 +19,8 @@ public class NetUrl {
     public static final String My_Info=BASE_ADDRESS+"/find/my/roommate";
     //我的房源
     public static final String MY_ROOM=BASE_ADDRESS+"/find/my/room";
+    //添加房源
+    public static final String ADD_ROOM=BASE_ADDRESS+"/save/room";
 
 
 }

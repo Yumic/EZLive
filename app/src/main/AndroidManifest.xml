@@ -38,6 +38,10 @@
 
 
         </activity>
+        <activity android:name=".activity.AddRoom" >
+
+
+        </activity>
 
         <activity android:name=".activity.LoginActivity" >
         </activity>
