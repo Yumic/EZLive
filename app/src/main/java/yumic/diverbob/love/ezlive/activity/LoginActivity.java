@@ -45,6 +45,7 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         //通过MyApplication获取当前用户
         myApplication = MyApplication.getInstance();
+
         final RequestQueue mQueue = Volley.newRequestQueue(LoginActivity.this);
         //初始化
         init();
@@ -62,17 +63,16 @@ public class LoginActivity extends Activity {
                 }
 
                 //获取两个所填Id和Password
-                id=editId.getText().toString();
-                password=editPassword.getText().toString();
-                if(id.equals("")){
+                id = editId.getText().toString();
+                password = editPassword.getText().toString();
+                if (id.equals("")) {
                     Toast.makeText(LoginActivity.this, "请输入你的用户名", Toast.LENGTH_SHORT).show();
-                }else if(password.equals("")){
+                } else if (password.equals("")) {
                     Toast.makeText(LoginActivity.this, "请输入你的密码", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
 
 
                     mQueue.add(loginStringRequest);
-
 
 
                 }
@@ -148,7 +148,7 @@ public class LoginActivity extends Activity {
         buttonLogin=(Button)findViewById(R.id.button_login);
         editId=(EditText)findViewById(R.id.edit_id);
         editPassword=(EditText)findViewById(R.id.edit_password);
-        btn_regiser= (Button) findViewById(R.id.button_register);
+        btn_regiser= (Button) findViewById(R.id.btn_register_register);
 
     }
 
