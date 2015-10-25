@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity
 
     private final String TAG="MainActivity";
     private FloatingActionButton fab;
+    Fragment fragment;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        fragmentManager=getSupportFragmentManager();
 
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -92,8 +95,6 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = null;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 

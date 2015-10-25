@@ -1,7 +1,6 @@
 package yumic.diverbob.love.ezlive.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,24 +20,23 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import yumic.diverbob.love.ezlive.MyApplication;
 import yumic.diverbob.love.ezlive.R;
-import yumic.diverbob.love.ezlive.activity.RoommateDetailActivity;
-import yumic.diverbob.love.ezlive.bean.Roommate;
+import yumic.diverbob.love.ezlive.bean.Room;
 
-public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHolder> {
+public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder> {
     private final LayoutInflater mLayoutInflater;
-    private  final Context mContext;
+    private final Context mContext;
     private final ImageLoader imageLoader;
 
 
-    private List<Roommate> data = new ArrayList<Roommate>();
+
+    private List<Room> data = new ArrayList<Room>();
 
     public MyApplication myApplication;
 
-    public RoommateAdapter(Context context) {
+    public RoomAdapter(Context context) {
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
         myApplication = MyApplication.getInstance();
-        //currentUser=myApplication.getCurrentUser();
         imageLoader = ImageLoader.getInstance(); // Get singleton instance
         //currentUser=myApplication.getCurrentUser();
         // Create global configuration and initialize ImageLoader with this config
@@ -48,13 +46,13 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
     }
 
 
-    public void setData(List<Roommate> data) {
+    public void setData(List<Room> data) {
         this.data = data;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(mLayoutInflater.inflate(R.layout.item_roommate, parent, false),mContext);
+        return new ViewHolder(mLayoutInflater.inflate(R.layout.item_room, parent, false), mContext);
     }
 
     @Override
@@ -63,19 +61,27 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
 
             //holder.textViewEventName.setText(data.get(position).getEventName());
 
-            holder.textViewName.setText(data.get(position).getName());
-            holder.textViewSex.setText(data.get(position).getSex());
-            holder.textViewAge.setText(data.get(position).getAge());
-            holder.textViewWishsex.setText(data.get(position).getWish_sex());
-            holder.textViewWishcontent.setText(data.get(position).getWish_content());
-            imageLoader.displayImage("http://112.74.203.123/xiaobaijuyi/public/picture/get/roommate/"+data.get(position).getId(), holder.imageViewPhoto);
+            holder.textViewPosition.setText(data.get(position).getPosition());
+            holder.textViewPosition.setText(data.get(position).getPosition_more());
+
+            String wishSex = "性别不限";
+
+            if (data.get(position).getSex()!=null&&data.get(position).getSex().equals("1")) {
+                wishSex = "仅限男性";
+            } else if (data.get(position).getSex()!=null&&data.get(position).getSex().equals("2")) {
+                wishSex = "仅限女性";
+            }else{
+                wishSex = "性别不限";
+            }
+
+            imageLoader.displayImage("http://112.74.203.123/xiaobaijuyi/public/picture/get/room/" + data.get(position).getId(), holder.imageViewPhoto);
 
             holder.linearLayoutAll.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(mContext,RoommateDetailActivity.class);
-                    myApplication.setCurrentRoommate(data.get(position));
-                    mContext.startActivity(intent);
+//                    Intent intent = new Intent(mContext, RoommateDetailActivity.class);
+//                    myApplication.setCurrentRoommate(data.get(position));
+//                    mContext.startActivity(intent);
                 }
             });
 
@@ -97,39 +103,34 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
      * @author ButterKnifeZelezny, plugin for Android Studio by Avast Developers (http://github.com/avast)
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
-
-
-        @Bind(R.id.textView_name)
-        TextView textViewName;
-        @Bind(R.id.textView_sex)
-        TextView textViewSex;
-        @Bind(R.id.textView_age)
-        TextView textViewAge;
-        @Bind(R.id.textView_hopesex)
-        TextView textViewWishsex;
-        @Bind(R.id.textView_wishcontent)
-        TextView textViewWishcontent;
         @Bind(R.id.imageView_photo)
         ImageView imageViewPhoto;
+        @Bind(R.id.textView_position)
+        TextView textViewPosition;
+        @Bind(R.id.textView_position_more)
+        TextView textViewPositionMore;
+        @Bind(R.id.textView_sex)
+        TextView textViewSex;
         @Bind(R.id.linearLayout_all)
         LinearLayout linearLayoutAll;
 
-        ViewHolder(final View view,final Context mContext) {
+
+        ViewHolder(final View view, final Context mContext) {
             super(view);
             ButterKnife.bind(this, view);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("NormalTextViewHolder", "onClick--> position = " + getLayoutPosition());
-                    Intent intent=new Intent(mContext, RoommateDetailActivity.class);
-                    mContext.startActivity(intent);
+//                    Intent intent=new Intent(mContext, RoommateDetailActivity.class);
+//                    mContext.startActivity(intent);
                 }
             });
         }
     }
 
-    public void setData(Roommate roommate) {
-        data.add(roommate);
+    public void setData(Room room) {
+        data.add(room);
         notifyDataSetChanged();
     }
 
