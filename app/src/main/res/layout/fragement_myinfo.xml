@@ -16,8 +16,8 @@
         <ImageView
             android:id="@+id/iv_photo"
             android:layout_toRightOf="@+id/tv_myPhoto"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
             android:layout_alignBaseline="@+id/tv_myPhoto"
             android:layout_width="200dp"
             android:layout_height="200dp"
@@ -53,7 +53,7 @@
                android:layout_height="60dp"
                android:hint="小白"
 
-               android:gravity="center_horizontal"
+               android:gravity="center_horizontal|bottom"
                 />
 
        </RelativeLayout>
@@ -130,7 +130,7 @@
             android:layout_height="60dp"
             android:inputType="number"
             android:hint="20"
-            android:gravity="center"
+            android:gravity="center_horizontal|bottom"
             />
 
 

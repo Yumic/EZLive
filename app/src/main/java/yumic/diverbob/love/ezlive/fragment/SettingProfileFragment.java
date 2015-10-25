@@ -36,6 +36,7 @@ import yumic.diverbob.love.ezlive.MyApplication;
 import yumic.diverbob.love.ezlive.R;
 import yumic.diverbob.love.ezlive.activity.MainActivity;
 import yumic.diverbob.love.ezlive.activity.RegisterActivity;
+import yumic.diverbob.love.ezlive.bean.User;
 import yumic.diverbob.love.ezlive.util.pictureUtils;
 
 
@@ -95,6 +96,15 @@ public class SettingProfileFragment extends Fragment {
 //      得到当前对象
         myApplication=MyApplication.getInstance();
 
+     if(!isFirst)
+     {
+            iv_myPhoto.setImageBitmap(myApplication.getCurrentUser().getCurrentBitmap());
+     }else{
+           Bitmap bitmap= BitmapFactory.decodeResource(getResources(), R.drawable.xiake);
+           iv_myPhoto.setImageBitmap(pictureUtils.toRoundBitmap(bitmap));
+         }
+
+
 
         /*
         * 给保存按钮添加监听
@@ -105,13 +115,16 @@ public class SettingProfileFragment extends Fragment {
                     Log.e("change", "onclick");
 
                     sex = getSex();
-                    age =String.valueOf(et_ages.getText());
+                    age = String.valueOf(et_ages.getText());
                     nickName = et_nickName.getText().toString();
 
 
                     if (isAgesLegal(age)) {
 
                         toUpData();
+                        Log.e("toUpData", "成功");
+
+                        myApplication.setCurrentUser(new User());
                         myApplication.getCurrentUser().setAge(age);
                         myApplication.getCurrentUser().setNickName(nickName);
                         myApplication.getCurrentUser().setSex(sex);
@@ -120,7 +133,7 @@ public class SettingProfileFragment extends Fragment {
                 /*
                 * 输出一个要保存的数据，然后上传网络，与网络进行交互
                 * */
-                    Toast.makeText(getActivity(), ""+nickName + age + sex, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "" + nickName + age + sex, Toast.LENGTH_LONG).show();
 
 
                 }
@@ -129,12 +142,6 @@ public class SettingProfileFragment extends Fragment {
 
 
 
-            if(!isFirst){
-                iv_myPhoto.setImageBitmap(myApplication.getCurrentUser().getCurrentBitmap());
-            }else{
-                Bitmap bitmap= BitmapFactory.decodeResource(getResources(), R.drawable.xiake);
-                iv_myPhoto.setImageBitmap(pictureUtils.toRoundBitmap(bitmap));
-            }
 
         /*
        * 选择自己手机里的照片进行选择
@@ -143,7 +150,7 @@ public class SettingProfileFragment extends Fragment {
 
                 public void onClick(View v) {
               /*
-              * 閫氳繃intent瀹炵幇椤甸潰鐨勮烦杞紝鎵撳紑閫夋嫨鐓х墖鐨勯〉闈?
+              *
               * */
                     Intent intent = new Intent();
 //
@@ -161,7 +168,7 @@ public class SettingProfileFragment extends Fragment {
         }
 
     private void toUpData() {
-        //        建立一个RequestQueue对象
+        //       建立一个RequestQueue对象
         RequestQueue mQueue = Volley.newRequestQueue(getActivity());
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 "http://112.74.203.123/xiaobaijuyi/public/account/set",
@@ -216,28 +223,33 @@ public class SettingProfileFragment extends Fragment {
 
                 Uri uri=data.getData();
 
-                Log.e("uri", uri.toString());
+                Log.e("文件地址uri", uri.toString());
 
-                ContentResolver cr=activity.getContentResolver();
+
+                ContentResolver cr=getActivity().getContentResolver();
+                if(cr==null){
+                    Log.e("cr为空","然后就报错了");
+                }
 
                 try{
 
                     Bitmap bitMap= null;
 
                         bitMap = BitmapFactory.decodeStream(cr.openInputStream(uri));
-                        Bitmap circleBitmap=pictureUtils.toRoundBitmap(bitMap);
+                        Bitmap circleBitmap=pictureUtils.zoomBitmap(pictureUtils.toRoundBitmap(bitMap));
+
+                    Log.e("判断次日circle是否为空",""+(circleBitmap==null));
 
 
-//              灏嗘墜鏈轰腑鐨勫浘鐗囪缃埌鎴戜滑鐨勫ご鍍忎腑
-//                iv_myPhoto.setImageBitmap(bitMap);
+                    iv_myPhoto.setImageBitmap(circleBitmap);
+
                     myApplication.getCurrentUser().setCurrentBitmap(circleBitmap);
-//                    Myapplication.currentPhoto=circleBitmap;
-                    isFirst=false;
 
-                    activity.setContentView(R.layout.fragement_myinfo);
-                    init();
 
                     isFirst=false;
+
+
+
 
 
                 }catch (FileNotFoundException e) {
