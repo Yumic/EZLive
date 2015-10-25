@@ -9,15 +9,15 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark" android:orientation="vertical"
     android:gravity="bottom">
 
-    <ImageView  android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <ImageView  android:layout_width="70dp" android:layout_height="70dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@android:drawable/sym_def_app_icon" android:id="@+id/imageView" />
+        android:src="@drawable/app_icon" android:id="@+id/imageView" />
 
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing" android:text="小白居易" android:textSize="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="112.74.203.123/xiaobaijuyi/public" android:id="@+id/textView" />
+        android:text="" android:id="@+id/textView" />
 
 </LinearLayout>

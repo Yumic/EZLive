@@ -22,6 +22,7 @@ import java.util.Map;
 
 import yumic.diverbob.love.ezlive.MyApplication;
 import yumic.diverbob.love.ezlive.R;
+import yumic.diverbob.love.ezlive.bean.Roommate;
 import yumic.diverbob.love.ezlive.bean.User;
 import yumic.diverbob.love.ezlive.net.NetUrl;
 import yumic.diverbob.love.ezlive.util.DoubleClickJuage;
@@ -45,6 +46,10 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         //通过MyApplication获取当前用户
         myApplication = MyApplication.getInstance();
+        Roommate us=new Roommate();
+        myApplication.setCurrentRoommate(us);
+        User user=new User();
+        myApplication.setCurrentUser(user);
 
         final RequestQueue mQueue = Volley.newRequestQueue(LoginActivity.this);
         //初始化

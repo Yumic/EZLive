@@ -22,19 +22,19 @@
             android:layout_height="360dp" />
         <TextView
             android:id="@+id/tv1"
-            android:text="信息一"
+            android:text="王大宝 女 26岁"
             android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/tv2"
-            android:text="信息二"
+            android:text="期望舍友性别：不限"
             android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/tv3"
-            android:text="信息三"
+            android:text="对舍友的期待：干净整洁，不养宠物，不要总带人回来玩"
             android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

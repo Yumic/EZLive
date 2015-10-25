@@ -49,6 +49,7 @@ public class FindingInfoDetailActivity extends Activity implements View.OnClickL
         }
         tvMoney.setText("期望房租："+money+"/月");
         String sex;
+        Log.d("testWISHSEX",roommate.getWish_sex());
         if (roommate.getWish_sex().equals("0")){
             sex="不限";
         }
