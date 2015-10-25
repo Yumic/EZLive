@@ -129,9 +129,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_setting_profile) {
             fragment = new SettingProfileFragment();
-        } else if (id == R.id.nav_setting_account) {
-            fragment = new SettingAccountFragment();
         }
+//        } else if (id == R.id.nav_setting_account) {
+//            fragment = new SettingAccountFragment();
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
