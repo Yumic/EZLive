@@ -77,6 +77,7 @@ public class SettingProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        activity=getActivity();
     }
 
     @Override

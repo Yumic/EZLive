@@ -75,7 +75,7 @@ public class RoomPopup extends PopupWindow {
         this.setAnimationStyle(R.style.AnimationPreview);
 
         iniListner(activity);
-       // iniDefault();
+        iniDefault();
 
     }
 

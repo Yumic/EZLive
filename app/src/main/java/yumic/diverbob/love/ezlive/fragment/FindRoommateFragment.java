@@ -143,6 +143,7 @@ public class FindRoommateFragment extends Fragment {
                                 Roommate temp = new Roommate();
                                 object = array.getJSONObject(i);
                                 temp.setUsername(object.getString("username"));
+                                temp.setName(object.getString("name"));
                                 temp.setWish_sex(object.getString("wish_sex"));
                                 temp.setWish_content(object.getString("wish_content"));
                                 temp.setOwn_describe(object.getString("own_describe"));

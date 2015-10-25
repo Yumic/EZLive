@@ -2,12 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/linearLayout_all">
+    android:padding="4dp"
+    android:id="@+id/linearLayout_all"
+    android:background="@drawable/shape"
+    android:layout_margin="2dp">
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:id="@+id/imageView_photo"
+        android:scaleType="center"
         android:layout_gravity="center_horizontal" />
 
     <LinearLayout
@@ -41,7 +45,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/LinearLayout_group1">

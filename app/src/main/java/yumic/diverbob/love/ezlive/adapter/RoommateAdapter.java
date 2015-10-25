@@ -64,10 +64,16 @@ public class RoommateAdapter extends RecyclerView.Adapter<RoommateAdapter.ViewHo
             //holder.textViewEventName.setText(data.get(position).getEventName());
 
             holder.textViewName.setText(data.get(position).getName());
-            holder.textViewSex.setText(data.get(position).getSex());
-            holder.textViewAge.setText(data.get(position).getAge());
-            holder.textViewWishsex.setText(data.get(position).getWish_sex());
-            holder.textViewWishcontent.setText(data.get(position).getWish_content());
+            holder.textViewSex.setText(data.get(position).getSex().equals("1")?"男":"女");
+            holder.textViewAge.setText(data.get(position).getAge()+"岁");
+            String wishSex="不限";
+            if(data.get(position).getWish_sex().equals("1")){
+                wishSex="男";
+            }else if(data.get(position).getWish_sex().equals("2")){
+                wishSex="女";
+            }
+            holder.textViewWishsex.setText(wishSex);
+            holder.textViewWishcontent.setText(data.get(position).getWish_content().substring(0,50)+"...");
             imageLoader.displayImage("http://112.74.203.123/xiaobaijuyi/public/picture/get/roommate/"+data.get(position).getId(), holder.imageViewPhoto);
 
             holder.linearLayoutAll.setOnClickListener(new View.OnClickListener() {
