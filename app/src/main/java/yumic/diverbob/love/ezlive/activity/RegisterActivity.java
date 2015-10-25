@@ -23,6 +23,7 @@ import java.util.Map;
 
 import yumic.diverbob.love.ezlive.MyApplication;
 import yumic.diverbob.love.ezlive.R;
+import yumic.diverbob.love.ezlive.bean.User;
 
 /**
  * Created by Qingwen_li on 2015/10/24.
@@ -38,6 +39,8 @@ public class RegisterActivity  extends Activity {
     String name;
 //    保存密码
     String password;
+//    得到一个对象
+    MyApplication mapplication = MyApplication.getInstance();
 
 
 protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +92,10 @@ protected void onCreate(Bundle savedInstanceState) {
                        Log.e("返回值是什么呢",s);
                        if(s.equals("1"))
                        {
-//                          MyApplication.CurrentUser()
-//        .setName(et_userName.getText().toString());
-//                         注册成功之后直接进入主界面
+                           User us=new User();
+                           mapplication.setCurrentUser(us);
+                           mapplication.getCurrentUser().setName(et_userName.getText().toString());
+//       、                 注册成功之后直接进入主界面
                            Intent intent = new Intent();
                            intent.setClass(RegisterActivity.this, MainActivity.class);
                            startActivity(intent);
