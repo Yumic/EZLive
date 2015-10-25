@@ -89,7 +89,8 @@ protected void onCreate(Bundle savedInstanceState) {
                        Log.e("返回值是什么呢",s);
                        if(s.equals("1"))
                        {
-//                          MyApplication.CurrentUser().setName(et_userName.getText().toString());
+//                          MyApplication.CurrentUser()
+//        .setName(et_userName.getText().toString());
 //                         注册成功之后直接进入主界面
                            Intent intent = new Intent();
                            intent.setClass(RegisterActivity.this, MainActivity.class);
