@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/tv_myPhoto"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text=""
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_toRightOf="@+id/tv_myPhoto"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_alignBaseline="@+id/tv_myPhoto"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/xiake"
+    />
+
+
+
+
+
+       <RelativeLayout
+           android:id="@+id/rl_myInfo_nickName"
+           android:layout_below="@+id/iv_photo"
+           android:layout_width="match_parent"
+           android:layout_height="70dp">
+
+
+           <TextView
+               android:id="@+id/tv_myInfo_nickName"
+               android:layout_marginTop="30dp"
+               android:layout_marginLeft="70dp"
+               android:layout_width="60dp"
+               android:layout_height="60dp"
+               android:text="昵称："
+               android:textSize="20dp"
+
+               />
+
+           <EditText
+               android:id="@+id/et_myInfo_nick"
+               android:layout_toRightOf="@+id/tv_myInfo_nickName"
+               android:layout_width="150dp"
+               android:layout_height="60dp"
+               android:hint="小白"
+
+               android:gravity="center_horizontal"
+                />
+
+       </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_myInfo_sex"
+        android:layout_below="@+id/rl_myInfo_nickName"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/tv_myInfo_sex"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="性别："
+            android:textSize="20dp"
+            />
+
+        <RadioGroup
+            android:id="@+id/rg_myInfo_sex"
+            android:layout_toRightOf="@+id/tv_myInfo_sex"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
+
+
+                <RadioButton
+                    android:id="@+id/rb_myInfo_male"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:text="男"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:layout_toRightOf="@+id/rb_myInfo_male"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:text="女"
+                    />
+
+
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/rl_myInfo_sex"
+        android:id="@+id/rl_myInfo_age"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+
+        <TextView
+            android:id="@+id/tv_myInfo_age"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="年龄："
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:id="@+id/et_myInfo_age"
+            android:layout_toRightOf="@+id/tv_myInfo_age"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:inputType="number"
+            android:hint="20"
+            android:gravity="center"
+            />
+
+
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_myInfo_saveChanges"
+        android:layout_below="@id/rl_myInfo_age"
+        android:layout_width="124dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="120dp"
+        android:text="保存设置"
+        android:background="@drawable/shape"
+        android:textColor="@color/colorTextLight"
+        android:textSize="24dp"
+        />
+</RelativeLayout>
