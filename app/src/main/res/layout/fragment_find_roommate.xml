@@ -31,6 +31,8 @@
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:id="@+id/imageButton"
+            android:src="@drawable/icon_search20_20_1"
+            android:background="#00000000"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />

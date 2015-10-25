@@ -6,7 +6,7 @@
         android:layout_height="60dp"
         android:layout_width="120dp">
         <!-- 填充的颜色 -->
-        <solid android:color="#FF9800" />
+        <solid android:color="#E3E3E3" />
         <!-- 设置按钮的四个角为弧形 -->
         <!-- android:radius 弧形的半径 -->
         <corners android:radius="10dip" />

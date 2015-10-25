@@ -127,14 +127,15 @@ public class MyRentingInfoFragment extends Fragment implements View.OnClickListe
                             roommate.setPrice_min(temp.getString("price_min"));
                             Log.e("TAG", "1");
                             String sex = null;
-                            if (temp.getString("wish_sex").equals("0")){
-                                sex="不限";
-                            }else if (temp.getString("wish_sex").equals("1")){
+                            if (temp.getString("wish_sex").equals("1")){
                                 sex="男";
                             }else if (temp.getString("wish_sex").equals("2")){
                                 sex="女";
+                            }else{
+                                sex="不限";
+
                             }
-                            myApplication.setCurrentRoommate(roommate);
+                                myApplication.setCurrentRoommate(roommate);
                             //设置数据
                             tv1.setText("");
                             tv2.setText("期望舍友的性别："+sex);
